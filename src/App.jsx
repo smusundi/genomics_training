@@ -2,8 +2,8 @@
 import { useState } from 'react'
 import {
   Activity,
-  Bird,
   Dna,
+  Bird,
   Microscope,
   ShieldCheck,
   ArrowRight,
@@ -21,7 +21,7 @@ const modules = [
     name: 'Scenario 1',
     category: 'Scenario 1',
     description: 'Investigating an unknown outbreak.',
-    icon: Bird,
+    icon: Dna,
     color: '#e7a83e',
     status: 'Featured scenario'
   },
