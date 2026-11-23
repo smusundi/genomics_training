@@ -78,12 +78,11 @@ function App() {
 
   const featured = modules[0]
 
-  function openModule(module) {
-    if (module.id === 'h5n1') {
-      setSelected(module)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
+function openModule(module) {
+  setSelected(module)
+  setMenuOpen(false)
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
   return (
     <div className="app">
