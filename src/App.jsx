@@ -17,10 +17,10 @@ import {
 
 const modules = [
   {
-    id: 'Unknown outbreak',
+    id: 'Disease X',
     name: 'Scenario 1',
     category: 'Scenario 1',
-    description: 'Investigating an unknown outbreak.',
+    description: 'Investigating an outbreak of a disease of unknown cause.',
     icon: Dna,
     color: '#e7a83e',
     status: 'Featured scenario'
