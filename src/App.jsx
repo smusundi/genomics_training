@@ -10,14 +10,12 @@ import {
   Lock,
 } from 'lucide-react'
 
-const QUESTION_TIME = 180 // 3 minutes per question
+const QUESTION_TIME = 180
 
 const questions = [
   {
-    title: 'Initial notification',
-    section: 'Epidemiological investigation',
-    briefing:
-      'In early 2024, a clinic in coastal Kenya reports an unusual increase in patients presenting with redness of the eyes. Thirteen patients have been reported over a short period. Community concern is increasing, and public health teams have been notified. The cause has not been established.',
+    title: 'Question 01',
+    briefing: 'In early 2024, a clinic in coastal Kenya reports an unusual increase in patients presenting with redness of the eyes. Thirteen patients have been reported over a short period. Community concern is increasing, and public health teams have been notified. The cause has not been established.',
     prompt: 'You have received the notification. Which action should take priority?',
     options: [
       'Declare an outbreak immediately and begin population-wide control measures.',
@@ -27,10 +25,8 @@ const questions = [
     ],
   },
   {
-    title: 'Defining the event',
-    section: 'Epidemiological investigation',
-    briefing:
-      'A visit to the clinic confirms that several patients have similar clinical presentations. However, the records are incomplete, and it is not yet clear whether all reported cases are part of the same event. Additional cases may be occurring in the surrounding community.',
+    title: 'Question 02',
+    briefing: 'A visit to the clinic confirms that several patients have similar clinical presentations. However, the records are incomplete, and it is not yet clear whether all reported cases are part of the same event. Additional cases may be occurring in the surrounding community.',
     prompt: 'Which approach would provide the most reliable estimate of the extent of the event?',
     options: [
       'Use eye redness alone as the case definition and include everyone reporting the symptom.',
@@ -40,10 +36,8 @@ const questions = [
     ],
   },
   {
-    title: 'Specimen selection',
-    section: 'Epidemiological investigation',
-    briefing:
-      'Additional individuals with similar symptoms are identified. The investigation team is preparing a specimen collection plan to support laboratory testing.',
+    title: 'Question 03',
+    briefing: 'Additional individuals with similar symptoms are identified. The investigation team is preparing a specimen collection plan to support laboratory testing.',
     prompt: 'Which specimen collection strategy is likely to provide the most useful initial evidence?',
     options: [
       'Collect blood from every patient because systemic specimens are generally more informative.',
@@ -53,10 +47,8 @@ const questions = [
     ],
   },
   {
-    title: 'Investigating possible exposures',
-    section: 'Epidemiological investigation',
-    briefing:
-      'Initial interviews suggest that some patients attend the same schools, live in nearby areas or have had contact with one another. Other patients have no obvious connection.',
+    title: 'Question 04',
+    briefing: 'Initial interviews suggest that some patients attend the same schools, live in nearby areas or have had contact with one another. Other patients have no obvious connection.',
     prompt: 'Which interpretation should guide the next stage of the investigation?',
     options: [
       'Shared locations establish that the event is caused by a contaminated water source.',
@@ -66,10 +58,8 @@ const questions = [
     ],
   },
   {
-    title: 'Selecting preliminary laboratory investigations',
-    section: 'Initial laboratory investigation',
-    briefing:
-      'Specimens have been collected, and the clinical team requests initial laboratory investigations before considering more specialised approaches. Routine bacterial culture and molecular assays are available.',
+    title: 'Question 05',
+    briefing: 'Specimens have been collected, and the clinical team requests initial laboratory investigations before considering more specialised approaches. Routine bacterial culture and molecular assays are available.',
     prompt: 'Which initial combination of investigations would be reasonable to prioritise?',
     options: [
       'Bacterial culture and pan-adenovirus qPCR.',
@@ -79,10 +69,8 @@ const questions = [
     ],
   },
   {
-    title: 'Interpreting preliminary findings',
-    section: 'Initial laboratory investigation',
-    briefing:
-      'Initial investigations are performed on 20 specimens. Eighteen specimens do not have an explanation from the methods used, while the remaining findings are inconclusive.',
+    title: 'Question 06',
+    briefing: 'Initial investigations are performed on 20 specimens. Eighteen specimens do not have an explanation from the methods used, while the remaining findings are inconclusive.',
     prompt: 'What is the most appropriate next step?',
     options: [
       'Conclude that there is no infectious cause because most specimens tested negative.',
@@ -92,10 +80,8 @@ const questions = [
     ],
   },
   {
-    title: 'Selecting a discovery approach',
-    section: 'Sequencing strategy',
-    briefing:
-      'The initial investigations have not established a cause. Specimen volumes are limited, and the range of possible infectious agents remains broad.',
+    title: 'Question 07',
+    briefing: 'The initial investigations have not established a cause. Specimen volumes are limited, and the range of possible infectious agents remains broad.',
     prompt: 'Which factors should guide the choice of the next laboratory approach?',
     options: [
       'The most expensive sequencing platform available.',
@@ -105,10 +91,8 @@ const questions = [
     ],
   },
   {
-    title: 'Comparing sequencing strategies',
-    section: 'Sequencing strategy',
-    briefing:
-      'The team considers three approaches: amplicon sequencing, probe-based target enrichment and untargeted metagenomic sequencing.',
+    title: 'Question 08',
+    briefing: 'The team considers three approaches: amplicon sequencing, probe-based target enrichment and untargeted metagenomic sequencing.',
     prompt: 'Which statement describes an important limitation of one of these approaches?',
     options: [
       'Amplicon sequencing can detect any unknown organism because it amplifies all nucleic acids.',
@@ -118,10 +102,8 @@ const questions = [
     ],
   },
   {
-    title: 'Evaluating sequencing controls',
-    section: 'Sequencing data assessment',
-    briefing:
-      'Clinical specimens and negative extraction and library-preparation controls are sequenced. Some reads are also detected in a negative control.',
+    title: 'Question 09',
+    briefing: 'Clinical specimens and negative extraction and library-preparation controls are sequenced. Some reads are also detected in a negative control.',
     prompt: 'What should be investigated before interpreting the sequencing results?',
     options: [
       'Remove every sequence found in the negative control from all clinical samples without further investigation.',
@@ -131,10 +113,8 @@ const questions = [
     ],
   },
   {
-    title: 'Assessing sequencing output',
-    section: 'Sequencing data assessment',
-    briefing:
-      'The sequencing run produces read statistics, including total reads, read-length distributions, quality scores and the proportion of classified reads.',
+    title: 'Question 10',
+    briefing: 'The sequencing run produces read statistics, including total reads, read-length distributions, quality scores and the proportion of classified reads.',
     prompt: 'Which combination of observations best supports proceeding to taxonomic interpretation?',
     options: [
       'A high total read count alone.',
@@ -144,10 +124,8 @@ const questions = [
     ],
   },
   {
-    title: 'Interpreting taxonomic classification',
-    section: 'Metagenomic analysis',
-    briefing:
-      'Taxonomic classification assigns reads at different levels, including kingdom, phylum, family, genus and species. Some reads are assigned only at higher taxonomic levels.',
+    title: 'Question 11',
+    briefing: 'Taxonomic classification assigns reads at different levels, including kingdom, phylum, family, genus and species. Some reads are assigned only at higher taxonomic levels.',
     prompt: 'How should these taxonomic assignments be interpreted?',
     options: [
       'Every family-level assignment confirms the presence of a specific species.',
@@ -157,30 +135,22 @@ const questions = [
     ],
   },
   {
-    title: 'Exploring the taxonomic profile',
-    section: 'Metagenomic analysis',
+    title: 'Question 12',
     visual: 'krona',
     responseType: 'text',
-    briefing:
-      'An interactive Krona plot generated from the metagenomic classification results is provided. Explore the taxonomic hierarchy and examine the relative contribution of the displayed groups.',
-    prompt:
-      'Using the Krona plot, identify the most represented taxonomic group at the lowest classification level that you consider reliably supported. Record the group and the level of classification.',
+    briefing: 'An interactive Krona plot generated from the classification results is provided. Explore the displayed hierarchy and examine the relative contribution of the groups.',
+    prompt: 'Using the provided visual evidence, identify the most represented taxonomic group at the lowest classification level that you consider reliably supported. Record the group and its classification level.',
   },
   {
-    title: 'Identifying a candidate for further investigation',
-    section: 'Metagenomic analysis',
+    title: 'Question 13',
     visual: 'krona',
     responseType: 'text',
-    briefing:
-      'You have explored the taxonomic profile. Several assignments may warrant closer inspection, but read counts alone do not establish a causal relationship.',
-    prompt:
-      'Name the taxon you would prioritise for further investigation and briefly record the observations from the Krona plot that support your choice.',
+    briefing: 'You have examined the taxonomic profile. Several assignments may warrant closer inspection, but read counts alone do not establish a causal relationship.',
+    prompt: 'Name the taxon you would prioritise for further investigation and briefly record the observations that support your choice.',
   },
   {
-    title: 'Selecting reads for genome reconstruction',
-    section: 'Genome characterisation',
-    briefing:
-      'A candidate taxon has been prioritised for further investigation. The next task is to recover sequence data that may support genome reconstruction.',
+    title: 'Question 14',
+    briefing: 'A candidate taxon has been prioritised for further investigation. The next task is to recover sequence data that may support genome reconstruction.',
     prompt: 'Which approach is most appropriate for selecting reads for further analysis?',
     options: [
       'Select all reads and assemble them without considering their taxonomic assignments.',
@@ -190,10 +160,8 @@ const questions = [
     ],
   },
   {
-    title: 'Assessing reference mapping',
-    section: 'Genome characterisation',
-    briefing:
-      'Candidate-associated reads are mapped against a suitable reference sequence. Mapping summaries and coverage information are generated.',
+    title: 'Question 15',
+    briefing: 'Candidate-associated reads are mapped against a suitable reference sequence. Mapping summaries and coverage information are generated.',
     prompt: 'Which set of metrics is most useful when evaluating the mapping results?',
     options: [
       'The total number of mapped reads alone.',
@@ -203,10 +171,8 @@ const questions = [
     ],
   },
   {
-    title: 'Evaluating genome completeness',
-    section: 'Genome characterisation',
-    briefing:
-      'The reconstructed sequence has substantial coverage across much of the reference, but several regions are poorly represented or absent.',
+    title: 'Question 16',
+    briefing: 'The reconstructed sequence has substantial coverage across much of the reference, but several regions are poorly represented or absent.',
     prompt: 'Which interpretation is most appropriate when describing genome completeness?',
     options: [
       'High average depth alone proves that the genome is complete.',
@@ -216,10 +182,8 @@ const questions = [
     ],
   },
   {
-    title: 'Seeking confirmatory evidence',
-    section: 'Genome characterisation',
-    briefing:
-      'The candidate sequence is detected in more than one clinical specimen. The team is considering additional evidence to assess the reliability and significance of the finding.',
+    title: 'Question 17',
+    briefing: 'The candidate sequence is detected in more than one clinical specimen. The team is considering additional evidence to assess the reliability and significance of the finding.',
     prompt: 'Which additional evidence would strengthen the investigation?',
     options: [
       'An independent targeted molecular assay, interpreted alongside specimen-level findings and the sequencing controls.',
@@ -229,10 +193,8 @@ const questions = [
     ],
   },
   {
-    title: 'Selecting reference sequences',
-    section: 'Phylogenetic analysis',
-    briefing:
-      'A set of sequences is available for phylogenetic analysis. The collection includes sequences from different locations and sampling periods, with variation in completeness and quality.',
+    title: 'Question 18',
+    briefing: 'A set of sequences is available for phylogenetic analysis. The collection includes sequences from different locations and sampling periods, with variation in completeness and quality.',
     prompt: 'Which strategy is most appropriate when selecting reference sequences?',
     options: [
       'Use only the oldest available sequence.',
@@ -242,11 +204,9 @@ const questions = [
     ],
   },
   {
-    title: 'Interpreting the phylogenetic tree',
-    section: 'Phylogenetic analysis',
+    title: 'Question 19',
     visual: 'tree',
-    briefing:
-      'A phylogenetic tree is provided with the investigated sequence and selected reference sequences. The tree represents inferred evolutionary relationships among the included sequences.',
+    briefing: 'A phylogenetic tree is provided with the investigated sequence and selected reference sequences. The tree represents inferred evolutionary relationships among the included sequences.',
     prompt: 'Which conclusion can reasonably be drawn from the tree?',
     options: [
       'Sequences that cluster together are necessarily linked by direct transmission.',
@@ -256,11 +216,9 @@ const questions = [
     ],
   },
   {
-    title: 'Integrating the evidence',
-    section: 'Phylogenetic analysis',
+    title: 'Question 20',
     visual: 'tree',
-    briefing:
-      'The investigation now has epidemiological observations, preliminary laboratory findings, metagenomic results, genome characterisation and phylogenetic analysis.',
+    briefing: 'The investigation now has epidemiological observations, preliminary laboratory findings, metagenomic results, genome characterisation and phylogenetic analysis.',
     prompt: 'How should the investigation team formulate its overall conclusion?',
     options: [
       'Base the conclusion only on the taxon with the highest read count.',
@@ -274,8 +232,8 @@ const questions = [
 const scenarios = [
   {
     number: '01',
-    title: 'Unusual cluster of clinical presentations',
-    description: 'Investigate an emerging event using epidemiological and genomic evidence.',
+    title: 'Scenario 01',
+    description: 'Examine an emerging event using the information provided.',
     status: 'Available',
     available: true,
   },
@@ -414,7 +372,7 @@ export default function App() {
               <div>
                 <p className="eyebrow">PRACTICAL EXERCISES</p>
                 <h2>Choose an investigation</h2>
-                <p>Work through the evidence and make decisions as the investigation unfolds.</p>
+                <p>Work through the information and make decisions as the investigation unfolds.</p>
               </div>
               <span className="scenario-count">05 SCENARIOS</span>
             </div>
@@ -451,8 +409,8 @@ export default function App() {
               <p>
                 This open-access tabletop platform is designed for bioinformatics trainees
                 and researchers. Participants interpret provided datasets and evidence,
-                progressing from epidemiological investigation to metagenomic analysis,
-                genome characterisation and phylogenetic interpretation.
+                progressing through an outbreak investigation using epidemiological,
+                laboratory and genomic information.
               </p>
             </div>
           </section>
@@ -469,45 +427,47 @@ export default function App() {
             </div>
           </div>
 
-          <div className="progress-track"><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${progress}%` }} />
+          </div>
 
           <div className="question-meta">
-            <span>{currentQuestion.section}</span>
             <span>{Math.round(progress)}% complete</span>
           </div>
 
           <h1>{currentQuestion.title}</h1>
 
           <section className="briefing-panel">
-            <div className="briefing-label"><Activity size={16} /> INVESTIGATION UPDATE</div>
+            <div className="briefing-label"><Activity size={16} /> CASE INFORMATION</div>
             <p>{currentQuestion.briefing}</p>
           </section>
 
           {currentQuestion.visual === 'krona' && (
             <section className="evidence-panel">
-              <h2>Metagenomic taxonomic profile</h2>
+              <h2>Additional evidence</h2>
               <p>
-                The interactive Krona plot will appear here when the Scenario 01 Krona HTML
-                file is added to the project. Until then, use the question prompt as a
-                placeholder for the evidence review.
+                The interactive evidence display will appear here when its HTML file
+                is added to the project. Until then, this area is reserved for that material.
               </p>
-              <p className="file-hint">Expected file location: <code>public/krona/scenario01_krona.html</code></p>
+              <p className="file-hint">
+                Expected file location: <code>public/krona/scenario01_krona.html</code>
+              </p>
             </section>
           )}
 
           {currentQuestion.visual === 'tree' && (
             <section className="evidence-panel">
-              <h2>Phylogenetic evidence</h2>
+              <h2>Additional evidence</h2>
               <p>
-                The phylogenetic tree will appear here when the Scenario 01 tree file or
-                exported tree image is added to the project.
+                The relevant visual evidence will appear here when the supporting file
+                is added to the project.
               </p>
-              <p className="file-hint">A Newick, Nexus or high-resolution tree image can be used.</p>
+              <p className="file-hint">A supported tree file or high-resolution image can be used.</p>
             </section>
           )}
 
           <section className="question-content">
-            <p className="question-label">YOUR TASK</p>
+            <p className="question-label">RESPONSE</p>
             <h2>{currentQuestion.prompt}</h2>
 
             {currentQuestion.responseType === 'text' ? (
@@ -544,12 +504,16 @@ export default function App() {
 
           {submitted && (
             <div className="submission-notice" role="status">
-              {timeLeft === 0 ? 'Time is up. This question is now locked.' : 'Response recorded. This question is now locked.'}
+              {timeLeft === 0
+                ? 'Time is up. This question is now locked.'
+                : 'Response recorded. This question is now locked.'}
             </div>
           )}
 
           {!submitted && timeLeft <= 30 && timeLeft > 0 && (
-            <p className="timer-notice">30 seconds or less remaining. Submit your response before time runs out.</p>
+            <p className="timer-notice">
+              30 seconds or less remaining. Submit your response before time runs out.
+            </p>
           )}
 
           <div className="question-navigation">
@@ -562,7 +526,11 @@ export default function App() {
             </button>
 
             {!submitted ? (
-              <button className="primary-button" onClick={submitAnswer} disabled={!answer.trim()}>
+              <button
+                className="primary-button"
+                onClick={submitAnswer}
+                disabled={!answer.trim()}
+              >
                 Submit response <ArrowRight size={16} />
               </button>
             ) : (
