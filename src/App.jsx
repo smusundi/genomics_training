@@ -17,10 +17,10 @@ import {
 
 const modules = [
   {
-    id: 'h5n1',
-    name: 'H5N1 Avian Influenza',
-    category: 'INFLUENZA',
-    description: 'Investigating the 2024 H5N1 outbreak in dairy cattle through metagenomics and genomic epidemiology.',
+    id: 'Unknown outbreak',
+    name: 'Scenario 1',
+    category: 'Scenario 1',
+    description: 'Investigating an unknown outbreak.',
     icon: Bird,
     color: '#e7a83e',
     status: 'Featured scenario'
