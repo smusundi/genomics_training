@@ -3,17 +3,18 @@
 
 :root {
   font-family: 'DM Sans', sans-serif;
-  color: #e9eef5;
-  background: #0b1420;
+  color: #172b4d;
+  background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   --background: #ffffff;
-  --surface: #111e2d;
-  --surface-light: #192a3d;
-  --text: #e9eef5;
-  --muted: #91a1b4;
-  --accent: #55c6a1;
-  --border: #26384a;
+  --surface: #ffffff;
+  --surface-light: #f1f5f9;
+  --text: #172b4d;
+  --muted: #64748b;
+  --accent: #087e8b;
+  --border: #e2e8f0;
 }
 
 * {
