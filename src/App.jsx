@@ -12,9 +12,7 @@ import {
 const questions = [
   {
     title: 'Initial outbreak response',
-    briefing: `Early 2024 · Coastal Kenya
-
-An eye clinic reports that 13 patients have presented with redness of the eyes over a short period. The cause is unknown, and the local public health team has been notified.`,
+    briefing: ` In early 2024, nn eye clinic reports that 13 patients have presented with redness of the eyes over a short period and the general public is frightened that there is a suspicious disease spreading.  The cause is unknown, and the local public health team has been notified.`,
     question: 'You are the public health officer responding to this notification. What do you do?',
     options: [
       {
