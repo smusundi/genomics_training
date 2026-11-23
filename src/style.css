@@ -120,8 +120,8 @@ button {
   align-items: center;
   gap: 35px;
   background:
-    radial-gradient(ellipse at 80% 50%, #183b43 0%, transparent 45%),
-    linear-gradient(120deg, #102033, #0b1420);
+   radial-gradient(ellipse at 80% 50%, #e0f2f1 0%, transparent 45%),
+   linear-gradient(120deg, #ffffff, #f1f5f9);
 }
 
 .eyebrow {
