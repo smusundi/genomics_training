@@ -55,7 +55,7 @@ button {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  background: #0d1825;
+  background: #ffffff;
 }
 
 .brand {
@@ -107,7 +107,7 @@ button {
 
 .mobile-menu {
   display: none;
-  color: white;
+  color: #172b4d;
   background: none;
   border: none;
 }
