@@ -612,3 +612,120 @@ footer {
     font-size: 30px;
   }
 }
+
+
+/* Consistent typography throughout the application */
+
+.app,
+.app button,
+.app input,
+.app label {
+  font-family: inherit;
+}
+
+.app {
+  color: #243447;
+}
+
+/* Question layout */
+
+.question-page {
+  width: 100%;
+  max-width: 850px;
+  margin: 35px auto 70px;
+  box-sizing: border-box;
+}
+
+.question-content {
+  width: 100%;
+}
+
+.question-content h3 {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #172b3a;
+}
+
+/* Answer options */
+
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.answer-option {
+  display: grid;
+  grid-template-columns: 18px 22px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 17px 20px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dce3ea;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.answer-option input {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  accent-color: #087e8b;
+}
+
+.answer-option .option-letter {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.65;
+  color: #087e8b;
+}
+
+.answer-option > span:last-child {
+  min-width: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.answer-option.selected {
+  border-color: #087e8b;
+  background: #f0fdfa;
+}
+
+/* Buttons */
+
+.question-page button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Mobile arrangement */
+
+@media (max-width: 600px) {
+  .answer-option {
+    padding: 14px;
+    gap: 9px;
+    font-size: 13px;
+  }
+
+  .answer-option > span:last-child {
+    font-size: 13px;
+  }
+}
+
