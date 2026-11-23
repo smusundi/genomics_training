@@ -1,13 +1,16 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Dna,
   ArrowLeft,
   ArrowRight,
   Activity,
   Menu,
-  X
+  X,
+  Timer
 } from 'lucide-react'
+
+const QUESTION_TIME = 120
 
 const questions = [
   {
@@ -21,7 +24,7 @@ const questions = [
       },
       {
         id: 'B',
-        text: 'Verify the reported cases, review clinical records and establish whether the reports represent an unusual event.'
+        text: 'Visit the clinic, verify the reported cases, review clinical records and establish whether the reports represent an unusual event.'
       },
       {
         id: 'C',
@@ -29,7 +32,7 @@ const questions = [
       },
       {
         id: 'D',
-        text: 'Issue a public warning while waiting for the clinic to provide further information.'
+        text: 'Issue a public warning before verifying the reported cases.'
       }
     ]
   },
@@ -52,14 +55,14 @@ const questions = [
       },
       {
         id: 'D',
-        text: 'Wait until the causative agent has been identified before defining and searching for cases.'
+        text: 'Wait until the cause has been identified before defining and searching for cases.'
       }
     ]
   },
   {
     title: 'Specimen selection',
     briefing: `The investigation has identified additional individuals with similar symptoms. You are now planning specimen collection. The clinical presentation is consistent across several patients, but there is no confirmed explanation for the event.`,
-    question: 'Which specimen strategy would provide the most useful evidence at this stage?',
+    question: 'Which specimen collection strategy would provide the most useful evidence at this stage?',
     options: [
       {
         id: 'A',
@@ -75,12 +78,12 @@ const questions = [
       },
       {
         id: 'D',
-        text: 'Collect specimens only from patients with the most severe symptoms to maximise the likelihood of detection.'
+        text: 'Collect specimens only from patients with the most severe symptoms.'
       }
     ]
   },
   {
-    title: 'Interpreting the epidemiological pattern',
+    title: 'Investigating possible exposures',
     briefing: `Preliminary interviews suggest that some affected individuals attend the same schools, live in nearby households or have had contact with one another. Other patients do not report an obvious connection. The investigation has not established a common exposure.`,
     question: 'Which interpretation should guide the next stage of the epidemiological investigation?',
     options: [
@@ -94,7 +97,7 @@ const questions = [
       },
       {
         id: 'C',
-        text: 'The pattern warrants investigation of direct contact, shared environments and other common exposures without assuming a single route.'
+        text: 'Investigate direct contact, shared environments and other common exposures without assuming a single route.'
       },
       {
         id: 'D',
@@ -103,48 +106,71 @@ const questions = [
     ]
   },
   {
-    title: 'Reviewing preliminary laboratory findings',
-    briefing: `Specimens from 20 individuals have undergone the initial routine laboratory investigations selected by the clinical team. Eighteen specimens have not produced an explanation for the observed clinical pattern. The remaining findings are inconclusive. The investigation team must decide how best to proceed.`,
-    question: 'What should determine the next laboratory strategy?',
+    title: 'Selecting preliminary laboratory investigations',
+    briefing: `Specimens have been collected from affected individuals. The clinical team requests an initial laboratory investigation before considering more specialised approaches. You have access to routine culture methods and molecular diagnostic assays.`,
+    question: 'Which initial combination of investigations would you prioritise?',
     options: [
       {
         id: 'A',
-        text: 'Repeat exactly the same investigations on all specimens, regardless of specimen quality or the limitations of the original methods.'
+        text: 'Bacterial culture and pan-adenovirus qPCR.'
       },
       {
         id: 'B',
-        text: 'Review specimen quality, collection and storage conditions, previous test coverage and the possibility that the current methods did not detect the cause.'
+        text: 'Whole-genome sequencing of every specimen before conducting routine investigations.'
       },
       {
         id: 'C',
-        text: 'Discard the unresolved specimens and collect samples only from newly reported patients.'
+        text: 'A single targeted assay selected without reviewing the clinical and epidemiological information.'
       },
       {
         id: 'D',
-        text: 'Select one suspected organism based on the clinical presentation and use only a test designed to detect it.'
+        text: 'Microscopy alone, without further investigation of specimens with negative findings.'
+      }
+    ]
+  },
+  {
+    title: 'Interpreting preliminary findings',
+    briefing: `Initial investigations have been performed on 20 clinical specimens. Eighteen specimens have not yielded an explanation through the methods used. The remaining findings are inconclusive. The cause of the event remains unresolved.`,
+    question: 'What would be the most appropriate next step?',
+    options: [
+      {
+        id: 'A',
+        text: 'Conclude that the event is not associated with an infectious agent because most specimens were negative.'
+      },
+      {
+        id: 'B',
+        text: 'Review specimen quality, test limitations and the possibility that the current investigations did not cover the causative agent.'
+      },
+      {
+        id: 'C',
+        text: 'Repeat exactly the same tests indefinitely without reviewing the initial results.'
+      },
+      {
+        id: 'D',
+        text: 'Select one suspected organism based only on the clinical presentation and disregard other possibilities.'
       }
     ]
   },
   {
     title: 'Choosing a sequencing strategy',
-    briefing: `The investigation team has decided that sequencing may help resolve the unexplained findings. The laboratory has access to an amplicon sequencing workflow, a probe-based target-enrichment panel covering a range of known agents, and an unbiased metagenomic sequencing workflow. Resources, specimen quantity and sequencing capacity are limited. No causative agent has been established.`,
-    question: 'Which sequencing strategy would you prioritise, and what evidence would justify your choice?',
+    briefing: `The investigation team is considering sequencing to investigate the unresolved cases. The laboratory has access to an amplicon sequencing workflow, a probe-based target-enrichment panel covering a range of known agents, and an unbiased metagenomic sequencing workflow. Resources, specimen quantity and sequencing capacity are limited. No causative agent has been established.`,
+    question: 'Which sequencing strategy would you prioritise? Consider the investigation objectives, strengths and limitations of each approach.',
     options: [
       {
         id: 'A',
-        text: 'Amplicon sequencing, because it can selectively amplify specific genomic regions and is generally efficient when suitable targets and primers are already known.'
+        text: 'Amplicon sequencing, using specific primers to amplify selected genomic regions.'
       },
       {
         id: 'B',
-        text: 'Probe-based target enrichment, because it can enrich sequences matching a defined panel of known targets, although detection depends on panel coverage and sequence similarity.'
+        text: 'Probe-based target enrichment, using probes to enrich sequences matching targets represented in a predefined panel.'
       },
       {
         id: 'C',
-        text: 'Unbiased metagenomic sequencing, because it does not require a predefined target, although host background, sequencing depth and low pathogen abundance can limit detection.'
+        text: 'Unbiased metagenomic sequencing, without restricting the investigation to a predefined target.'
       },
       {
         id: 'D',
-        text: 'Choose the method with the highest expected read count, without considering target coverage, specimen characteristics or the question being investigated.'
+        text: 'Choose the method expected to generate the highest number of reads, without considering the investigation objectives or specimen characteristics.'
       }
     ]
   }
@@ -189,14 +215,38 @@ function App() {
   const [answer, setAnswer] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [timeLeft, setTimeLeft] = useState(QUESTION_TIME)
 
   const currentQuestion = questions[questionIndex]
+
+  useEffect(() => {
+    if (submitted) return
+
+    const interval = setInterval(() => {
+      setTimeLeft(previousTime => {
+        if (previousTime <= 1) {
+          setSubmitted(true)
+          return 0
+        }
+
+        return previousTime - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [questionIndex, submitted])
+
+  const minutes = Math.floor(timeLeft / 60)
+  const seconds = timeLeft % 60
+
+  const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 
   function openScenario() {
     setSelectedScenario(true)
     setQuestionIndex(0)
     setAnswer('')
     setSubmitted(false)
+    setTimeLeft(QUESTION_TIME)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -205,6 +255,7 @@ function App() {
     setQuestionIndex(0)
     setAnswer('')
     setSubmitted(false)
+    setTimeLeft(QUESTION_TIME)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -213,6 +264,7 @@ function App() {
       setQuestionIndex(questionIndex + 1)
       setAnswer('')
       setSubmitted(false)
+      setTimeLeft(QUESTION_TIME)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
@@ -222,6 +274,7 @@ function App() {
       setQuestionIndex(questionIndex - 1)
       setAnswer('')
       setSubmitted(false)
+      setTimeLeft(QUESTION_TIME)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
@@ -367,7 +420,9 @@ function App() {
             <div className="scenario-hero">
               <span className="eyebrow">SCENARIO 01 · CASE INVESTIGATION</span>
               <h1>Investigation of an unexplained disease event</h1>
-              <p>Assess the evidence and make decisions as the investigation develops.</p>
+              <p>
+                Assess the evidence and make decisions as the investigation develops.
+              </p>
             </div>
 
             <div className="question-page">
@@ -375,6 +430,11 @@ function App() {
                 <span className="question-counter">
                   Question {questionIndex + 1} of {questions.length}
                 </span>
+
+                <div className={`question-timer ${timeLeft <= 30 ? 'timer-warning' : ''}`}>
+                  <Timer size={18} />
+                  <span>{formattedTime}</span>
+                </div>
               </div>
 
               <div className="progress-track">
@@ -433,11 +493,13 @@ function App() {
                   <>
                     <div className="notice answer-feedback">
                       <div>
-                        <strong>Response recorded</strong>
+                        <strong>
+                          {timeLeft === 0 ? 'Time is up' : 'Response recorded'}
+                        </strong>
                         <p>
-                          Keep your reasoning in mind. You will have an
-                          opportunity to review and discuss your decisions
-                          as more evidence becomes available.
+                          {timeLeft === 0
+                            ? 'Your time for this question has ended. Continue to the next stage of the investigation.'
+                            : 'Your response has been recorded. Keep your reasoning in mind as you review the evidence in the next stage.'}
                         </p>
                       </div>
                     </div>
