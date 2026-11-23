@@ -11,177 +11,142 @@ import {
 
 const questions = [
   {
-    title: 'Initial outbreak notification',
-    briefing: `Early 2024 · Coastal Kenya
-
-Several individuals presenting with redness of the eyes have been reported at health facilities over a short period. The number of cases appears to be increasing, and members of the public are becoming increasingly concerned about how the illness is spreading.
-
-As a public health official, you receive notification of this event.`,
-    question: 'What is the first thing you should do?',
+    title: 'Initial notification',
+    briefing: `In early 2024, a clinic in coastal Kenya reports an unusual increase in patients presenting with redness of the eyes. Thirteen patients have been reported over a relatively short period. Community concern is increasing, and the local public health team has been notified. The cause has not been established.`,
+    question: 'You have received the notification. Which action should take priority?',
     options: [
       {
         id: 'A',
-        text: 'Immediately declare a large-scale outbreak and recommend treatment for the entire community.'
+        text: 'Declare an outbreak immediately and begin population-wide control measures.'
       },
       {
         id: 'B',
-        text: 'Verify the reported cases by visiting health facilities, reviewing patient records and conducting preliminary investigations.'
+        text: 'Verify the reported cases, review clinical records and establish whether the reports represent an unusual event.'
       },
       {
         id: 'C',
-        text: 'Immediately collect samples and send them for whole-genome sequencing.'
+        text: 'Collect specimens from all reported patients and request whole-genome sequencing.'
       },
       {
         id: 'D',
-        text: 'Issue a public announcement identifying the disease before conducting an investigation.'
+        text: 'Issue a public warning while waiting for the clinic to provide further information.'
       }
-    ],
-    correct: 'B',
-    explanation: 'The first step is to verify the notification and establish whether the reported cases represent an unusual increase. Visit the affected health facilities, review clinical records, interview healthcare workers and begin preliminary case finding. A working case definition can then guide the investigation.'
+    ]
   },
-
   {
-    title: 'Case investigation and specimen collection',
-    briefing: `You visit the affected health facilities and begin investigating the reported cases.
-
-Patients have similar clinical presentations, and you collect information on their symptoms, dates of onset, age, residence and possible contact with other affected individuals.
-
-You now need to collect appropriate clinical specimens to investigate the possible cause.`,
-    question: 'Which clinical specimen would be most appropriate to collect from affected patients?',
+    title: 'Defining the event',
+    briefing: `You visit the clinic and confirm that the reported patients have similar clinical presentations. However, the available records are incomplete, and it is not yet clear whether all patients are part of the same event. You are asked to investigate whether additional people in the community have experienced similar symptoms.`,
+    question: 'Which approach would produce the most reliable estimate of the extent of this event?',
     options: [
       {
         id: 'A',
-        text: 'Blood samples for investigation of bloodstream infections.'
+        text: 'Use eye redness alone as the case definition and include every person reporting this symptom.'
       },
       {
         id: 'B',
-        text: 'Conjunctival swabs from the affected eyes for bacterial and viral investigations.'
+        text: 'Develop a working case definition using clinical features, time and location, then conduct active case finding.'
       },
       {
         id: 'C',
-        text: 'Stool samples only, without collecting specimens from the affected eyes.'
+        text: 'Limit the investigation to patients already recorded at the reporting clinic.'
       },
       {
         id: 'D',
-        text: 'Nasopharyngeal swabs from all patients.'
+        text: 'Wait until the causative agent has been identified before defining and searching for cases.'
       }
-    ],
-    correct: 'B',
-    explanation: 'Conjunctival swabs directly sample the affected site and are appropriate for investigating bacterial and viral causes. Additional specimens may be considered depending on the clinical and epidemiological findings.'
+    ]
   },
-
   {
-    title: 'Possible mode of transmission',
-    briefing: `Preliminary interviews indicate that some affected individuals live in the same households, attend the same schools or have interacted with other symptomatic individuals.
-
-You are now considering how the illness may be spreading within the community.`,
-    question: 'Which transmission route would you prioritise when investigating this type of eye infection?',
+    title: 'Specimen selection',
+    briefing: `The investigation has identified additional individuals with similar symptoms. You are now planning specimen collection. The clinical presentation is consistent across several patients, but there is no confirmed explanation for the event.`,
+    question: 'Which specimen strategy would provide the most useful evidence at this stage?',
     options: [
       {
         id: 'A',
-        text: 'Direct contact with infected eye secretions and indirect contact through contaminated hands or shared objects.'
+        text: 'Collect blood from every patient because systemic specimens are generally more informative than specimens from the affected site.'
       },
       {
         id: 'B',
-        text: 'Transmission primarily through mosquito bites.'
+        text: 'Collect specimens directly from the affected anatomical site, while considering additional specimens where clinically and epidemiologically justified.'
       },
       {
         id: 'C',
-        text: 'Transmission exclusively through contaminated drinking water.'
+        text: 'Collect stool specimens only, because they can contain a wide range of microorganisms.'
       },
       {
         id: 'D',
-        text: 'Transmission primarily through inhalation of airborne particles over long distances.'
+        text: 'Collect specimens only from patients with the most severe symptoms to maximise the likelihood of detection.'
       }
-    ],
-    correct: 'A',
-    explanation: 'Many infectious causes of acute eye infections spread through direct contact with eye secretions or indirectly through contaminated hands, towels and frequently touched surfaces. Enteroviruses may also be shed in stool, so other transmission routes can be investigated where epidemiologically relevant.'
+    ]
   },
-
   {
-    title: 'Immediate public health intervention',
-    briefing: `The number of reported cases continues to increase. While laboratory investigations are being organised, you need to recommend immediate measures to reduce further transmission.
-
-The causative organism has not yet been identified.`,
-    question: 'Which immediate intervention would be most appropriate?',
+    title: 'Interpreting the epidemiological pattern',
+    briefing: `Preliminary interviews suggest that some affected individuals attend the same schools, live in nearby households or have had contact with one another. Other patients do not report an obvious connection. The investigation has not established a common exposure.`,
+    question: 'Which interpretation should guide the next stage of the epidemiological investigation?',
     options: [
       {
         id: 'A',
-        text: 'Promote hand hygiene, discourage sharing of towels and personal items, clean frequently touched surfaces and advise symptomatic individuals to limit close contact.'
+        text: 'The shared locations establish that transmission occurred through contaminated water.'
       },
       {
         id: 'B',
-        text: 'Administer antibiotics to everyone in the affected community.'
+        text: 'The absence of a reported connection in some patients rules out person-to-person spread.'
       },
       {
         id: 'C',
-        text: 'Wait for the laboratory results before introducing any infection prevention measures.'
+        text: 'The pattern warrants investigation of direct contact, shared environments and other common exposures without assuming a single route.'
       },
       {
         id: 'D',
-        text: 'Recommend mass vaccination against all known viral infections.'
+        text: 'The clustering is sufficient to conclude that all cases have the same source.'
       }
-    ],
-    correct: 'A',
-    explanation: 'Infection prevention measures should begin while the investigation is ongoing. Hand hygiene, avoiding shared personal items, environmental cleaning and reducing contact with eye secretions can help interrupt transmission.'
+    ]
   },
-
   {
-    title: 'Preliminary laboratory investigation',
-    briefing: `The conjunctival specimens have been collected and transported to the laboratory.
-
-The cause of the illness remains unknown. You need to investigate common bacterial and viral causes before considering broader pathogen discovery methods.`,
-    question: 'Which preliminary laboratory investigations would you prioritise?',
+    title: 'Reviewing preliminary laboratory findings',
+    briefing: `Specimens from 20 individuals have undergone the initial routine laboratory investigations selected by the clinical team. Eighteen specimens have not produced an explanation for the observed clinical pattern. The remaining findings are inconclusive. The investigation team must decide how best to proceed.`,
+    question: 'What should determine the next laboratory strategy?',
     options: [
       {
         id: 'A',
-        text: 'Bacterial culture and pan-adenovirus PCR testing.'
+        text: 'Repeat exactly the same investigations on all specimens, regardless of specimen quality or the limitations of the original methods.'
       },
       {
         id: 'B',
-        text: 'Whole-genome sequencing of all samples without preliminary testing.'
+        text: 'Review specimen quality, collection and storage conditions, previous test coverage and the possibility that the current methods did not detect the cause.'
       },
       {
         id: 'C',
-        text: 'Antibody testing for all known viral infections.'
+        text: 'Discard the unresolved specimens and collect samples only from newly reported patients.'
       },
       {
         id: 'D',
-        text: 'Antimicrobial susceptibility testing without first attempting bacterial isolation.'
+        text: 'Select one suspected organism based on the clinical presentation and use only a test designed to detect it.'
       }
-    ],
-    correct: 'A',
-    explanation: 'Bacterial culture investigates possible bacterial causes, while pan-adenovirus PCR screens for adenovirus, an important cause of eye infections. If these investigations do not explain the cases, broader pathogen discovery approaches can be considered.'
+    ]
   },
-
   {
-    title: 'Interpreting preliminary laboratory results',
-    briefing: `The laboratory completes the initial investigations on 20 clinical specimens.
-
-The results indicate that 18 of the 20 samples are negative for the preliminary bacterial investigations and pan-adenovirus PCR testing.
-
-The causative agent remains unidentified in these 18 samples. You need to decide how to proceed with the investigation.`,
-    question: 'What would be the most appropriate next step to investigate the unexplained cases?',
+    title: 'Choosing a sequencing strategy',
+    briefing: `The investigation team has decided that sequencing may help resolve the unexplained findings. The laboratory has access to an amplicon sequencing workflow, a probe-based target-enrichment panel covering a range of known agents, and an unbiased metagenomic sequencing workflow. Resources, specimen quantity and sequencing capacity are limited. No causative agent has been established.`,
+    question: 'Which sequencing strategy would you prioritise, and what evidence would justify your choice?',
     options: [
       {
         id: 'A',
-        text: 'Repeat the same pan-adenovirus PCR test on all samples indefinitely.'
+        text: 'Amplicon sequencing, because it can selectively amplify specific genomic regions and is generally efficient when suitable targets and primers are already known.'
       },
       {
         id: 'B',
-        text: 'Perform unbiased metagenomic sequencing on the unresolved samples to identify potential bacterial, viral or other microbial pathogens.'
+        text: 'Probe-based target enrichment, because it can enrich sequences matching a defined panel of known targets, although detection depends on panel coverage and sequence similarity.'
       },
       {
         id: 'C',
-        text: 'Conclude that the illness is not caused by an infectious agent.'
+        text: 'Unbiased metagenomic sequencing, because it does not require a predefined target, although host background, sequencing depth and low pathogen abundance can limit detection.'
       },
       {
         id: 'D',
-        text: 'Immediately begin antimicrobial treatment without further investigation.'
+        text: 'Choose the method with the highest expected read count, without considering target coverage, specimen characteristics or the question being investigated.'
       }
-    ],
-    correct: 'B',
-    explanation: 'When routine investigations do not identify the cause, unbiased metagenomic sequencing can be used to search for previously unrecognised or unexpected pathogens. Before sequencing, confirm specimen quality, nucleic acid integrity and appropriate controls. The resulting sequencing data can then be analysed using bioinformatics methods for pathogen identification and genome characterisation.'
+    ]
   }
 ]
 
@@ -240,7 +205,6 @@ function App() {
     setQuestionIndex(0)
     setAnswer('')
     setSubmitted(false)
-    setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -264,7 +228,6 @@ function App() {
 
   return (
     <div className="app">
-
       <header className="header">
         <a className="brand" href="#" onClick={goHome}>
           <div className="brand-icon">
@@ -294,10 +257,7 @@ function App() {
           >
             Scenarios
           </a>
-          <a
-            href="#about"
-            onClick={() => setMenuOpen(false)}
-          >
+          <a href="#about" onClick={() => setMenuOpen(false)}>
             About
           </a>
         </nav>
@@ -348,35 +308,21 @@ function App() {
             <section className="content-section" id="scenarios">
               <div className="section-heading">
                 <div>
-                  <span className="eyebrow">
-                    LEARNING ENVIRONMENT
-                  </span>
+                  <span className="eyebrow">LEARNING ENVIRONMENT</span>
                   <h2>Investigation scenarios</h2>
-                  <p>
-                    Select a scenario to begin your investigation.
-                  </p>
+                  <p>Select a scenario to begin your investigation.</p>
                 </div>
               </div>
 
               <div className="module-grid">
                 {scenarios.map((scenario) => (
-                  <article
-                    className="module-card"
-                    key={scenario.id}
-                  >
+                  <article className="module-card" key={scenario.id}>
                     <div className="module-top">
                       <div className="module-icon">
                         <Activity size={26} />
                       </div>
-
-                      <span
-                        className={`status ${
-                          scenario.available ? 'available' : ''
-                        }`}
-                      >
-                        {scenario.available
-                          ? 'Available'
-                          : 'Coming soon'}
+                      <span className={`status ${scenario.available ? 'available' : ''}`}>
+                        {scenario.available ? 'Available' : 'Coming soon'}
                       </span>
                     </div>
 
@@ -388,19 +334,12 @@ function App() {
                     <p>{scenario.description}</p>
 
                     <button
-                      className={`module-link ${
-                        scenario.available ? 'active' : ''
-                      }`}
+                      className={`module-link ${scenario.available ? 'active' : ''}`}
                       disabled={!scenario.available}
                       onClick={openScenario}
                     >
-                      {scenario.available
-                        ? 'Start scenario'
-                        : 'Coming soon'}
-
-                      {scenario.available && (
-                        <ArrowRight size={17} />
-                      )}
+                      {scenario.available ? 'Start scenario' : 'Coming soon'}
+                      {scenario.available && <ArrowRight size={17} />}
                     </button>
                   </article>
                 ))}
@@ -409,40 +348,29 @@ function App() {
 
             <section className="about-section" id="about">
               <div>
-                <span className="eyebrow">
-                  ABOUT THE PLATFORM
-                </span>
+                <span className="eyebrow">ABOUT THE PLATFORM</span>
                 <h2>Learn through investigation.</h2>
                 <p>
-                  Work through realistic outbreak scenarios,
-                  interpret evidence and develop your understanding
-                  of viral genomic surveillance.
+                  Work through realistic outbreak scenarios, interpret
+                  evidence and develop your understanding of genomic
+                  surveillance.
                 </p>
               </div>
             </section>
           </>
         ) : (
           <section className="scenario-page">
-
             <button className="back-button" onClick={goHome}>
-              <ArrowLeft size={17} />
-              Back to scenarios
+              <ArrowLeft size={17} /> Back to scenarios
             </button>
 
             <div className="scenario-hero">
-              <span className="eyebrow">
-                SCENARIO 01 · CASE INVESTIGATION
-              </span>
-              <h1>
-                Investigation of an unexplained disease event
-              </h1>
-              <p>
-                Work through the investigation one question at a time.
-              </p>
+              <span className="eyebrow">SCENARIO 01 · CASE INVESTIGATION</span>
+              <h1>Investigation of an unexplained disease event</h1>
+              <p>Assess the evidence and make decisions as the investigation develops.</p>
             </div>
 
             <div className="question-page">
-
               <div className="question-progress">
                 <span className="question-counter">
                   Question {questionIndex + 1} of {questions.length}
@@ -453,9 +381,7 @@ function App() {
                 <div
                   className="progress-fill"
                   style={{
-                    width: `${
-                      ((questionIndex + 1) / questions.length) * 100
-                    }%`
+                    width: `${((questionIndex + 1) / questions.length) * 100}%`
                   }}
                 />
               </div>
@@ -489,11 +415,7 @@ function App() {
                         disabled={submitted}
                         onChange={() => setAnswer(option.id)}
                       />
-
-                      <span className="option-letter">
-                        {option.id}
-                      </span>
-
+                      <span className="option-letter">{option.id}</span>
                       <span>{option.text}</span>
                     </label>
                   ))}
@@ -505,19 +427,18 @@ function App() {
                     disabled={!answer}
                     onClick={() => setSubmitted(true)}
                   >
-                    Submit answer
-                    <ArrowRight size={18} />
+                    Submit response <ArrowRight size={18} />
                   </button>
                 ) : (
                   <>
                     <div className="notice answer-feedback">
                       <div>
-                        <strong>
-                          {answer === currentQuestion.correct
-                            ? 'Correct answer!'
-                            : 'Not quite. Review the explanation.'}
-                        </strong>
-                        <p>{currentQuestion.explanation}</p>
+                        <strong>Response recorded</strong>
+                        <p>
+                          Keep your reasoning in mind. You will have an
+                          opportunity to review and discuss your decisions
+                          as more evidence becomes available.
+                        </p>
                       </div>
                     </div>
 
@@ -527,8 +448,7 @@ function App() {
                         onClick={previousQuestion}
                         disabled={questionIndex === 0}
                       >
-                        <ArrowLeft size={17} />
-                        Previous
+                        <ArrowLeft size={17} /> Previous
                       </button>
 
                       {questionIndex < questions.length - 1 ? (
@@ -536,16 +456,14 @@ function App() {
                           className="primary-button"
                           onClick={nextQuestion}
                         >
-                          Next question
-                          <ArrowRight size={18} />
+                          Next question <ArrowRight size={18} />
                         </button>
                       ) : (
                         <button
                           className="primary-button"
                           onClick={goHome}
                         >
-                          Finish scenario
-                          <ArrowRight size={18} />
+                          Finish scenario <ArrowRight size={18} />
                         </button>
                       )}
                     </div>
@@ -561,12 +479,9 @@ function App() {
         <div className="footer-brand">
           VIRAL GENOMICS · TABLETOP TRAINING HUB
         </div>
-        <p>
-          Open-access educational resource for genomic surveillance.
-        </p>
+        <p>Open-access educational resource for genomic surveillance.</p>
         <span>© 2026 · Training and research education</span>
       </footer>
-
     </div>
   )
 }
